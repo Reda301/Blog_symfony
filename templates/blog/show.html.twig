@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <articles>
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i')}} dans la catégorie Politique</div>
+        <div class="content">
+            <img src="{{ article.image }}" alt="">
+            {{ article.content | raw}}
+        </div>
+    </articles>
+     <a href="{{ path('blog_remove', {'id':article.id}) }}" class="btn btn-primary">Supprimer l'article</a>
+     <a href="{{ path('blog_edit', {'id':article.id}) }}" class="btn btn-primary">Enregistrer les modifications</a>
+
+{% endblock %}

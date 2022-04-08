@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formCrud 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h1>Création d'un article!</h1>
+
+    {{ form_start(formCrud )}}
+
+    {{ form_row(formCrud.title )}}
+    {{ form_row(formCrud.content )}}
+    {{ form_row(formCrud.image )}}
+
+    
+    
+
+    <button type='submit' class='btn btn-success'>
+    {% if editMode %}
+        Enregistrer les modifications
+    {% else %}
+        Ajouter un article
+    {% endif %}
+    </button>
+    
+    {{ form_end(formCrud) }}
+
+{% endblock %}
